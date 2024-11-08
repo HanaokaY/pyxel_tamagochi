@@ -21,9 +21,17 @@ class TamagotchiApp:
         if pyxel.btnp(pyxel.KEY_SPACE):
             self.feed()
 
+        # 遊ぶアクション（Aキー）
+        if pyxel.btnp(pyxel.KEY_A):
+            self.play()
+
     def feed(self):
         # 満腹度を増加（上限100）
         self.fullness = min(100, self.fullness + 10)
+    
+    def play(self):
+        # 楽しさを増加（上限100）
+        self.fun = min(100, self.fun + 10)
     
     def draw(self):
         pyxel.cls(0)

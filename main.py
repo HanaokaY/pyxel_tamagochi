@@ -16,6 +16,14 @@ class TamagotchiApp:
             self.fullness = max(0, self.fullness - 1)
             self.fun = max(0, self.fun - 1)
             self.health = max(0, self.health - 0.5)
+        
+        # エサをあげるアクション（スペースキー）
+        if pyxel.btnp(pyxel.KEY_SPACE):
+            self.feed()
+
+    def feed(self):
+        # 満腹度を増加（上限100）
+        self.fullness = min(100, self.fullness + 10)
     
     def draw(self):
         pyxel.cls(0)
@@ -33,4 +41,3 @@ class TamagotchiApp:
         pyxel.text(10, 57, f"Health: {int(self.health)}", 7)
 
 TamagotchiApp()
-
